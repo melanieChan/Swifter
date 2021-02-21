@@ -25,6 +25,9 @@ class HomeTableViewController: UITableViewController {
         
         // go back to landing screen
         self.dismiss(animated: true, completion: nil)
+        
+        // remember that user logged out 
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     // MARK: - Table view data source
 
