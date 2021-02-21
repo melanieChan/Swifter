@@ -9,6 +9,9 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
+    
+    var tweetArray = [NSDictionary]()
+    var numberOfTweets: Int = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,28 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadTweets()
+    }
+    
+    // get tweets from API
+    func loadTweets() {
+        
+        let apiUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        let params = ["count": 20]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: apiUrl, parameters: params, success: { ( tweets : [NSDictionary]) in
+        
+            self.tweetArray.removeAll()
+            
+            for tweet in tweets {
+                self.tweetArray.append(tweet)
+            }
+            
+            self.tableView.reloadData()
+            
+        }, failure: { (Error) in
+            print{"couldn't retrieve tweets"}
+        })
     }
 
     @IBAction func onLogout(_ sender: Any) {
@@ -33,8 +58,19 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         
-        cell.usernameLabel.text = "user name"
-        cell.tweetContent.text = "tweet content"
+        // get user data
+        let user = tweetArray[indexPath.row]["user"] as! Dictionary<String, Any>
+        
+        cell.usernameLabel.text = user["name"] as? String
+        cell.tweetContent.text = tweetArray[indexPath.row]["text"] as! String
+        
+        // set image
+        let imageUrl = URL(string: (user["profile_image_url_https"]) as! String )
+        let data = try? Data(contentsOf: imageUrl!)
+        
+        if let imageData = data {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
         
         return cell
     }
@@ -50,7 +86,7 @@ class HomeTableViewController: UITableViewController {
     // rows per section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return tweetArray.count
     }
 
     /*
