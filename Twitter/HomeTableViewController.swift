@@ -33,7 +33,9 @@ class HomeTableViewController: UITableViewController {
     @objc func loadTweets() {
         
         let apiUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let params = ["count": 20]
+        
+        numberOfTweets = 20
+        let params = ["count": numberOfTweets]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: apiUrl, parameters: params, success: { ( tweets : [NSDictionary]) in
         
@@ -50,7 +52,37 @@ class HomeTableViewController: UITableViewController {
             print{"couldn't retrieve tweets"}
         })
     }
+    
+    // for infinite scroll
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweetArray.count {
+            loadMoreTweets()
+        }
+    }
+    
+    func loadMoreTweets() {
+        let apiUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
 
+        numberOfTweets = numberOfTweets + 20
+        let params = ["count": numberOfTweets]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: apiUrl, parameters: params, success: { ( tweets : [NSDictionary]) in
+        
+            self.tweetArray.removeAll()
+            
+            for tweet in tweets {
+                self.tweetArray.append(tweet)
+            }
+            
+            self.tableView.reloadData()
+            
+        }, failure: { (Error) in
+            print{"couldn't retrieve tweets"}
+        })
+
+    }
+
+    
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         
