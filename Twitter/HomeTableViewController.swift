@@ -12,6 +12,8 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArray = [NSDictionary]()
     var numberOfTweets: Int = 0;
+    
+    let tweetRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +24,13 @@ class HomeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         loadTweets()
+        
+        tweetRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = tweetRefreshControl
     }
     
     // get tweets from API
-    func loadTweets() {
+    @objc func loadTweets() {
         
         let apiUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let params = ["count": 20]
@@ -39,6 +44,7 @@ class HomeTableViewController: UITableViewController {
             }
             
             self.tableView.reloadData()
+            self.tweetRefreshControl.endRefreshing()
             
         }, failure: { (Error) in
             print{"couldn't retrieve tweets"}
