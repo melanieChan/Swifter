@@ -69,7 +69,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="2Mh-Yr-Ry1">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="XGs-Yc-wh0">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" image="arrow.left.to.line.alt" catalog="system" id="XGs-Yc-wh0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onLogout:" destination="7Tm-L0-x6i" id="2cC-Jg-2IC"/>
@@ -88,7 +88,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dQs-Rf-VI8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.3093129953" green="0.71414224559999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.37050081130000001" green="0.68643615489999998" blue="0.76144247340000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -113,8 +113,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-OZ-zPq">
-                                <rect key="frame" x="125.5" y="306.5" width="124" height="54"/>
-                                <color key="backgroundColor" red="0.30931299532074341" green="0.71414224556765404" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="125.5" y="443" width="124" height="54"/>
+                                <color key="backgroundColor" red="0.37050081126151141" green="0.68643615487634346" blue="0.76144247344045923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="Lx7-sF-iGV"/>
                                     <constraint firstAttribute="height" constant="54" id="yp5-EZ-wFF"/>
@@ -127,12 +127,25 @@
                                     <action selector="onLoginButton:" destination="Eat-BS-zqd" eventType="touchUpInside" id="U0Y-ke-74h"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="TwitterLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Mo-rjA">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swifter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9y-ig-ytY">
+                                <rect key="frame" x="120.5" y="164" width="134.5" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="0.42678527134667477" green="0.79071578716270907" blue="0.87711665606257894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZH7-iD-sIT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dCz-OZ-zPq" firstAttribute="centerX" secondItem="R8s-Gb-9yC" secondAttribute="centerX" id="Jri-Eg-Qfz"/>
-                            <constraint firstItem="dCz-OZ-zPq" firstAttribute="centerY" secondItem="R8s-Gb-9yC" secondAttribute="centerY" id="bUN-Zn-hvD"/>
+                            <constraint firstItem="dCz-OZ-zPq" firstAttribute="top" secondItem="yUn-Mo-rjA" secondAttribute="bottom" constant="9.5" id="D2c-hY-RaH"/>
+                            <constraint firstItem="dCz-OZ-zPq" firstAttribute="centerX" secondItem="yUn-Mo-rjA" secondAttribute="centerX" id="ieq-Bx-2lI"/>
+                            <constraint firstItem="dCz-OZ-zPq" firstAttribute="centerX" secondItem="F9y-ig-ytY" secondAttribute="centerX" id="lCf-W4-WFY"/>
+                            <constraint firstItem="yUn-Mo-rjA" firstAttribute="top" secondItem="F9y-ig-ytY" secondAttribute="bottom" constant="21.5" id="pUh-cc-c8m"/>
+                            <constraint firstItem="yUn-Mo-rjA" firstAttribute="centerX" secondItem="R8s-Gb-9yC" secondAttribute="centerX" id="qLC-BJ-R3s"/>
+                            <constraint firstItem="yUn-Mo-rjA" firstAttribute="centerY" secondItem="R8s-Gb-9yC" secondAttribute="centerY" id="quT-uS-Eod"/>
                         </constraints>
                     </view>
                     <connections>
@@ -141,10 +154,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsa-kK-cVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1908" y="-133"/>
+            <point key="canvasLocation" x="-1908" y="-133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
+        <image name="TwitterLogoBlue" width="200" height="200"/>
+        <image name="arrow.left.to.line.alt" catalog="system" width="128" height="89"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
