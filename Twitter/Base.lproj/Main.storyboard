@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="126" id="R4K-5l-YRl" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="126"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="155" id="R4K-5l-YRl" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R4K-5l-YRl" id="WlT-Ej-QhL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlN-eh-vn5">
@@ -32,28 +32,36 @@
                                                 <constraint firstAttribute="width" constant="70" id="v58-xC-iBb"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbt-qx-DmI">
-                                            <rect key="frame" x="103" y="11" width="256" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbt-qx-DmI">
+                                            <rect key="frame" x="90" y="11" width="113" height="27"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRx-1h-vyi">
-                                            <rect key="frame" x="106" y="38" width="253" height="77"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRx-1h-vyi">
+                                            <rect key="frame" x="90" y="38" width="259" height="66"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-JI-zbd">
+                                            <rect key="frame" x="179" y="104" width="30" height="30"/>
+                                            <state key="normal" image="favor-icon">
+                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LRx-1h-vyi" secondAttribute="bottom" constant="40" id="7yt-ci-yvb"/>
                                         <constraint firstItem="LRx-1h-vyi" firstAttribute="top" secondItem="cbt-qx-DmI" secondAttribute="bottom" id="ETa-Pe-TAa"/>
                                         <constraint firstItem="cbt-qx-DmI" firstAttribute="leading" secondItem="PlN-eh-vn5" secondAttribute="trailing" constant="10" id="Lyk-4u-bUc"/>
                                         <constraint firstItem="cbt-qx-DmI" firstAttribute="top" secondItem="WlT-Ej-QhL" secondAttribute="topMargin" id="Ofa-DU-2j2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xq2-JI-zbd" secondAttribute="bottom" constant="10" id="Ofa-Ko-5jV"/>
                                         <constraint firstItem="PlN-eh-vn5" firstAttribute="leading" secondItem="WlT-Ej-QhL" secondAttribute="leading" constant="10" id="PhW-rU-ENw"/>
                                         <constraint firstItem="PlN-eh-vn5" firstAttribute="top" secondItem="WlT-Ej-QhL" secondAttribute="top" constant="20" id="ayu-SQ-3Rb"/>
                                         <constraint firstItem="LRx-1h-vyi" firstAttribute="leading" secondItem="PlN-eh-vn5" secondAttribute="trailing" constant="10" id="if6-e6-aGV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xq2-JI-zbd" secondAttribute="trailing" constant="150" id="k94-Sg-xcA"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LRx-1h-vyi" secondAttribute="trailing" constant="10" id="nnh-WM-JdN"/>
-                                        <constraint firstItem="LRx-1h-vyi" firstAttribute="bottom" secondItem="WlT-Ej-QhL" secondAttribute="bottomMargin" id="qrO-lV-7Ks"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -233,12 +241,16 @@
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="arrow.left.to.line.alt" catalog="system" width="128" height="89"/>
+        <image name="favor-icon" width="30" height="30"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
