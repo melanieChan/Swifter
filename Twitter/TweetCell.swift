@@ -68,7 +68,31 @@ class TweetCell: UITableViewCell {
         
     }
     
+    // send retweet status to Twitter & mark as tweet as retweeted 
     @IBAction func retweet(_ sender: Any) {
+        TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
+            
+            self.setRetweeted(true)
+            
+        }, failure: { (error) in
+            print("retweet failed \(error)")
+        })
+    }
+    
+    // change view of retweet button
+    func setRetweeted(_ isRetweeted:Bool) {
+        // change icon
+        if (isRetweeted) {
+            retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: UIControl.State.normal)
+            
+            retweetButton.isEnabled = false
+        }
+        
+        else {
+            retweetButton.setImage(UIImage(named: "retweet-icon"), for: UIControl.State.normal)
+            
+            retweetButton.isEnabled = true
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
