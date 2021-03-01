@@ -28,6 +28,10 @@ class TweetCell: UITableViewCell {
     
     // display color of fav button depending on favorited state
     func setFavorite(_ isFavorited: Bool){
+        // remember status
+        favoried = isFavorited
+        
+        // change color
         if (isFavorited) {
             // change color to red
             favButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
@@ -40,13 +44,26 @@ class TweetCell: UITableViewCell {
     
     var tweetId: Int = -1
     
-    // allows user to favorite tweet through app
+    // when user taps on like button, Twitter API is called to change favorite status of tweet
     @IBAction func favoriteTweet(_ sender: Any) {
-        if (favoried) {
-            
-            
-        } else {
-            
+        let toBeFavorited = !favoried
+        
+        // user wants to favorite tweet
+        if (toBeFavorited) {
+            TwitterAPICaller.client?.favoriteTweet(tweetId: tweetId, success: {
+                self.setFavorite(true)
+            }, failure: { (error) in
+                print("favorite not successful \(error)")
+            })
+        }
+        
+        // user wants to unfavorite
+        else {
+            TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
+                self.setFavorite(false)
+            }, failure: { (error) in
+                print("unfavorite not successful \(error)")
+            })
         }
         
     }

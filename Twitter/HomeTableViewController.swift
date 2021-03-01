@@ -121,6 +121,9 @@ class HomeTableViewController: UITableViewController {
         // set color of fav button
         cell.setFavorite((tweetArray[indexPath.row]["favorited"] as! Bool))
         
+        // get tweet's ID
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        
         return cell
     }
     
