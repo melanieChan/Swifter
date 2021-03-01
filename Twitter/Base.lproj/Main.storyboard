@@ -45,10 +45,20 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-JI-zbd">
-                                            <rect key="frame" x="179" y="104" width="30" height="30"/>
+                                            <rect key="frame" x="279" y="104" width="30" height="30"/>
                                             <state key="normal" image="favor-icon">
                                                 <color key="titleColor" systemColor="systemRedColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="favoriteTweet:" destination="R4K-5l-YRl" eventType="touchUpInside" id="4la-XJ-Nu6"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgu-z3-KyF">
+                                            <rect key="frame" x="219" y="104" width="30" height="30"/>
+                                            <state key="normal" image="retweet-icon"/>
+                                            <connections>
+                                                <action selector="retweet:" destination="R4K-5l-YRl" eventType="touchUpInside" id="g1e-6Q-OUD"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -60,12 +70,16 @@
                                         <constraint firstItem="PlN-eh-vn5" firstAttribute="leading" secondItem="WlT-Ej-QhL" secondAttribute="leading" constant="10" id="PhW-rU-ENw"/>
                                         <constraint firstItem="PlN-eh-vn5" firstAttribute="top" secondItem="WlT-Ej-QhL" secondAttribute="top" constant="20" id="ayu-SQ-3Rb"/>
                                         <constraint firstItem="LRx-1h-vyi" firstAttribute="leading" secondItem="PlN-eh-vn5" secondAttribute="trailing" constant="10" id="if6-e6-aGV"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xq2-JI-zbd" secondAttribute="trailing" constant="150" id="k94-Sg-xcA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xq2-JI-zbd" secondAttribute="trailing" constant="50" id="k94-Sg-xcA"/>
+                                        <constraint firstItem="xq2-JI-zbd" firstAttribute="leading" secondItem="Jgu-z3-KyF" secondAttribute="trailing" constant="30" id="loQ-aY-1Xk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LRx-1h-vyi" secondAttribute="trailing" constant="10" id="nnh-WM-JdN"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Jgu-z3-KyF" secondAttribute="bottom" constant="10" id="omG-0P-f3y"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favButton" destination="xq2-JI-zbd" id="Kcj-sv-1EG"/>
                                     <outlet property="profileImageView" destination="PlN-eh-vn5" id="SfZ-mT-jch"/>
+                                    <outlet property="retweetButton" destination="Jgu-z3-KyF" id="wKm-Oa-6dA"/>
                                     <outlet property="tweetContent" destination="LRx-1h-vyi" id="xrz-3b-0Mi"/>
                                     <outlet property="usernameLabel" destination="cbt-qx-DmI" id="rWZ-q8-X7c"/>
                                 </connections>
@@ -242,6 +256,7 @@
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="arrow.left.to.line.alt" catalog="system" width="128" height="89"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="retweet-icon" width="30" height="30"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

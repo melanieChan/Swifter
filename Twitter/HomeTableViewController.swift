@@ -100,6 +100,7 @@ class HomeTableViewController: UITableViewController {
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     
+    // create cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         
@@ -116,6 +117,9 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+        // set color of fav button
+        cell.setFavorite((tweetArray[indexPath.row]["favorited"] as! Bool))
         
         return cell
     }

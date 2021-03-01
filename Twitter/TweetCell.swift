@@ -19,6 +19,41 @@ class TweetCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var favButton: UIButton!
+    
+    @IBOutlet weak var retweetButton: UIButton!
+    
+    
+    var favoried:Bool = false
+    
+    // display color of fav button depending on favorited state
+    func setFavorite(_ isFavorited: Bool){
+        if (isFavorited) {
+            // change color to red
+            favButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
+        } else {
+            // grey
+            favButton.setImage(UIImage(named: "favor-icon"), for: UIControl.State.normal)
+        }
+        
+    }
+    
+    var tweetId: Int = -1
+    
+    // allows user to favorite tweet through app
+    @IBAction func favoriteTweet(_ sender: Any) {
+        if (favoried) {
+            
+            
+        } else {
+            
+        }
+        
+    }
+    
+    @IBAction func retweet(_ sender: Any) {
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
